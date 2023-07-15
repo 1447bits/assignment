@@ -1,3 +1,5 @@
+/* highest z-index is 99 @ expand navmenu at vw<500px*/
+
 :root {
   --card-width: 100%;
   --card-height: calc(var(--card-width) * 1.5);
@@ -5,8 +7,6 @@
 
 .App {
   text-align: center;
-  /* padding: 2em; */
-  /* border: 1px solid black; */
 }
 
 /* navbar styling */
@@ -17,12 +17,11 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.221);
 
-  --navbar-width: 90%;
   margin-left: 5%;
   margin-top: 5%;
+  --navbar-width: 90%;
   width: var(--navbar-width);
   height: calc(var(--navbar-width) * 0.12);
-
   border-radius: 15px;
   padding: 2%;
 
@@ -44,9 +43,14 @@
   color: #212121;
 }
 
+#nav-text>*:not(#selectednav) {
+  display: none;
+}
+
 /* NavOptionsSideMenu styling */
 #NavOptionsSideMenu {
-  --NavOptionsSideMenu-topVal: -100vh;
+  --NavOptionsSideMenu-topVal: -150vh;
+  opacity: 0;
 
   position: absolute;
   top: var(--NavOptionsSideMenu-topVal);
@@ -67,6 +71,7 @@
   border-radius: 15px;
   border: 1px solid rgba(104, 104, 104, 0.409);
   transition: 0.3s ease-in;
+  z-index: 99;
 }
 
 #NavOptionsSideMenu>#nav-exp-cancel-icon {
@@ -90,20 +95,26 @@
 
 /* UserPg styling */
 #UserPg {
-  margin-top: 2vh;
+  margin-top: 10%;
   padding: 2%;
+}
 
+#userCards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
 .Usercard {
-  width: 95%;
+  width: 100%;
   margin-left: 2.5%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
+  font-size: large;
+  color: #212121;
 }
 
 .Usercard-imgBox {
@@ -111,9 +122,19 @@
   display: block;
 }
 
+.UserAvatar,
+.UserAvatar>img {
+  width: 100%;
+  border-radius: 20px 8px 20px 8px;
+}
+
 .mailIcon {
   height: 1.5em;
   width: 1.5em;
+}
+
+.img-overlay>span {
+  padding: 5% 10%;
 }
 
 .img-overlay {
@@ -122,12 +143,12 @@
   right: 0;
   padding: 10px 20px;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
 
   display: flex;
   align-items: center;
   opacity: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.425));
+  background: linear-gradient(rgba(206, 206, 229, 0.213) 5%, rgba(206, 206, 229, 0.513), rgba(206, 206, 229, 0.925));
   font-weight: bolder;
   transition: 0.5s;
 }
@@ -136,15 +157,75 @@
   opacity: 1;
 }
 
-.card-id:hover, .mailIcon:hover {
+.card-id:hover,
+.mailIcon:hover {
   transform: scale(1.1);
 }
+
+.userCard-name {
+  font-weight: bolder;
+}
+
+#loading {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  color: #212121;
+}
+
 
 /* styling for screen larger than 500px */
 
 @media only screen and (min-width: 500px) {
-  body {
-    color: white;
-    background-color: black;
+  #Navbar {
+    --navbar-width: 95%;
+    width: var(--navbar-width);
+    height: calc(var(--navbar-width) * 0.05);
+    margin-left: 2.5%;
+    padding: 1% 2%;
+    margin-top: 2.5%;
+  }
+
+  #Navbar img:nth-of-type(1) {
+    width: 10%;
+  }
+
+  #Navbar img:nth-of-type(2) {
+    display: none;
+  }
+
+  #nav-text>h3:hover {
+    border-bottom: 1px solid rgba(80, 80, 80, 0.758);
+  }
+
+  #nav-text>h3 {
+    padding-bottom: 5px;
+  }
+
+  #nav-text {
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+  }
+
+  #nav-text>*:not(#selectednav) {
+    display: block;
+  }
+
+  #NavOptionsSideMenu {
+    display: none;
+  }
+
+  #UserPg {
+    margin-top: 2%;
+    max-width: 1200px;
+    margin-inline:auto ;
+  }
+
+  .Usercard-imgBox {
+    width: 50%;
+  } 
+  .Usercard .userCard-name {
+    font-size: xx-large;
   }
 }

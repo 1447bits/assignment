@@ -7,10 +7,12 @@ import CancelIcon from "../icons/cancelIcon.png"
 const menu = document.getElementById("NavOptionsSideMenu")
 
 function collapsewNavOptMenu() {
-    menu.style.setProperty("--NavOptionsSideMenu-topVal", "-100vh")
+    menu.style.setProperty("--NavOptionsSideMenu-topVal", "-150vh")
+    menu.style.setProperty("opacity", "0")
 }
 function showNavOptMenu() {
-    menu.style.setProperty("--NavOptionsSideMenu-topVal", "0")
+    menu.style.setProperty("--NavOptionsSideMenu-topVal", "0vh")
+    menu.style.setProperty("opacity", "1")
 }
 
 function NavOptionsSideMenu(props) {
@@ -32,7 +34,12 @@ function Navbar() {
             <NavOptionsSideMenu items={["Home", "About Us", "Users", "Services", "Products"]} />
             <img src={logo} />
             <span id="nav-text">
+                <h3>Home</h3>
+                <h3>About Us</h3>
+                <h3 id='selectednav'>Users</h3>
                 <h3>Users</h3>
+                <h3>Services</h3>
+                <h3>Products</h3>
             </span>
             <img src={navMenuIcon} onClick={showNavOptMenu} />
         </div>

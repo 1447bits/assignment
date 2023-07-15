@@ -10,7 +10,7 @@
 - **Bonus** points for using custom CSS/SASS/styled-components
 - **Bonus** points for writing clean code.
 
-Project Journey,
+## Project Journey.
 
 1. I created [this](https://github.com/1447bits/assignment) Github Repository. it hardly took me : `5 mins`
 2. creating React App initialising the project, It took me : `10-15 mins`

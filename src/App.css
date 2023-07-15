@@ -1,0 +1,28 @@
+:root {
+  --card-width: 100%;
+  --card-height: calc(var(--card-width) * 1.5);
+}
+
+.App {
+  text-align: center;
+  /* padding: 2em; */
+  /* border: 1px solid black; */
+}
+
+/* navbar styling */
+#Navbar {
+  position: fixed;
+  --navbar-width: 100%;
+  width: var(--navbar-width);
+  height: calc(var(--navbar-width) * 0.15 );
+  padding: 2%;
+}
+
+/* styling for screen larger than 500px */
+
+@media only screen and (min-width: 500px) {
+  body {
+    color: white;
+    background-color: black;
+  }
+}

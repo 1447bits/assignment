@@ -11,11 +11,133 @@
 
 /* navbar styling */
 #Navbar {
-  position: fixed;
-  --navbar-width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.221);
+
+  --navbar-width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
   width: var(--navbar-width);
-  height: calc(var(--navbar-width) * 0.15 );
+  height: calc(var(--navbar-width) * 0.12);
+
+  border-radius: 15px;
   padding: 2%;
+
+  --border-color: rgba(178, 178, 178, 0.311);
+
+  box-shadow: 1px 1px 15px var(--border-color),
+    -1px -1px 15px var(--border-color);
+}
+
+#Navbar img:nth-of-type(1) {
+  width: 30%;
+}
+
+#Navbar img:nth-of-type(2) {
+  width: 7%;
+}
+
+#nav-text {
+  color: #212121;
+}
+
+/* NavOptionsSideMenu styling */
+#NavOptionsSideMenu {
+  --NavOptionsSideMenu-topVal: -100vh;
+
+  position: absolute;
+  top: var(--NavOptionsSideMenu-topVal);
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+
+  color: #212121;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  background: rgba(205, 205, 205, 0.3);
+
+  width: 100%;
+  padding: 5%;
+  border-radius: 15px;
+  border: 1px solid rgba(104, 104, 104, 0.409);
+  transition: 0.3s ease-in;
+}
+
+#NavOptionsSideMenu>#nav-exp-cancel-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 15px;
+}
+
+.NavOptionsSideMenu-item {
+  padding-bottom: 2px;
+  transition: 0.5s;
+  border-bottom: 1px solid rgba(97, 97, 97, 0.1);
+}
+
+.NavOptionsSideMenu-item:hover {
+  border-bottom: 1px solid rgba(97, 97, 97, 0.5);
+}
+
+
+/* UserPg styling */
+#UserPg {
+  margin-top: 2vh;
+  padding: 2%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Usercard {
+  width: 95%;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Usercard-imgBox {
+  position: relative;
+  display: block;
+}
+
+.mailIcon {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.img-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  width: 100%;
+  gap: 20px;
+
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.425));
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.Usercard-imgBox:hover .img-overlay {
+  opacity: 1;
+}
+
+.card-id:hover, .mailIcon:hover {
+  transform: scale(1.1);
 }
 
 /* styling for screen larger than 500px */

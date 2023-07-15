@@ -1,0 +1,23 @@
+Assignment
+Please follow the instructions carefully provided in this document.
+
+- Create a web application using create-react-app:
+- Create a grid layout of users
+- Create a navbar showing any brand name (for eg. AirData, Censusster, Data Works etc.)
+- Add a button in the navbar saying 'Get users', which makes an API call to get the users data
+- Use https://reqres.in/api/users?page=1 to get the data (page number can be anything )
+- Show a loader while the API fetches the data
+- Bonus points for using custom CSS/SASS/styled-components
+- Bonus points for writing clean code.
+
+You can design your own UI for this, try to keep it simple.
+
+How to Submit
+
+Create a GitHub repository (don’t use aDMe in the repo name or anywhere in repo).
+Share the repository link with us
+This repository should contain a readme file describing the method you have used to solve the problem.
+Time taken to complete this assignment.
+Let us know if you have any doubts regarding the assignment.
+
+Note: This assignment is designed purely for the evaluations purpose and any part of your submission won’t be used in the actual product we are working on. 

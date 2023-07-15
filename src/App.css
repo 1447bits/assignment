@@ -173,6 +173,32 @@
   color: #212121;
 }
 
+#pagenavBtns {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.pagenavBtn {
+  all: unset;
+  font-weight: bold;
+  padding: 10px 15px;
+  background: rgb(91, 91, 217);
+  border-radius: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+#getUserBtn {
+  all: unset;
+  font-weight: bold;
+  padding: 10px 15px;
+  background: rgb(91, 91, 217);
+  border-radius: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+}
 
 /* styling for screen larger than 500px */
 
@@ -219,12 +245,13 @@
   #UserPg {
     margin-top: 2%;
     max-width: 1200px;
-    margin-inline:auto ;
+    margin-inline: auto;
   }
 
   .Usercard-imgBox {
     width: 50%;
-  } 
+  }
+
   .Usercard .userCard-name {
     font-size: xx-large;
   }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import "../App.css"
-import tempimg from "../images/tempImg.png"
 import mailIcon from "../icons/mailIcon.png"
 
 function Card(props) {
@@ -50,31 +49,62 @@ function Card(props) {
 export default function UserPg() {
 
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [pageurl, setpageurl] = useState("");
+    const [Bool_getuser, setBool_getuser] = useState(false);
+
+    function GetUserBtn(props) {
+        return <button onClick={() => {
+            setBool_getuser(true)
+            setpageurl("https://reqres.in/api/users?page=1")
+            setLoading(true)
+        }} id='getUserBtn'>
+            Get User
+        </button>
+    }
 
     useEffect(() => {
-        fetch('https://reqres.in/api/users?page=1')
-            .then(response => response.json())
 
+        // fetch('https://reqres.in/api/users?page=1')
+        fetch(pageurl)
+            .then(response => response.json())
             .then(pagedata => {
                 setData(pagedata.data);
-                // console.log(pagedata.data)
                 setLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
-                // console.log('Error:');
                 setLoading(false);
             });
-    }, []);
+    }, [pageurl]);
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
+
+    function ButtonRenderer(props) {
+
+        function changePg(n) {
+            setpageurl("https://reqres.in/api/users?page=" + n)
+        }
+
+        let n = props.noOfBtns;
+        const renderButtons = () => {
+            const buttons = [];
+            for (let i = 0; i < n; i++) {
+                buttons.push(<button className='pagenavBtn' onClick={() => changePg(i + 1)} key={i}>Page {i + 1}</button>);
+            }
+            return buttons;
+        };
+
+        return props.display ? <div id='pagenavBtns'>{renderButtons()}</div> : <></>;
+    }
+
     return (
         <div id='UserPg'>
-            <div id="userCards">
+            {!Bool_getuser ? <GetUserBtn /> : <div id="userCards">
                 {data.map(user => (
                     <Card
                         first_name={user.first_name}
@@ -84,10 +114,8 @@ export default function UserPg() {
                         avatar={user.avatar}
                     />
                 ))}
-            </div>
-            <div id='pageIndexBar'>
-                page index bar
-            </div>
+            </div>}
+            <ButtonRenderer display={Bool_getuser} noOfBtns={2} />
         </div>
     );
 }
